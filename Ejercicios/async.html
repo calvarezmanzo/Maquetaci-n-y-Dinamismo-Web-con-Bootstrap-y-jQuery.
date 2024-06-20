@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Pelicula</title>
+</head>
+<body>
+
+    <div>
+        <h2>Pelicula que vere hoy!!!</h2>
+        <button type="button" onclick="getPeliculaAleatorioHola()">Dime que pelicula veré!!</button>
+    </div>
+
+
+    <div id="contenidoHTML">
+        <h2>Listado de pokemones</h2>
+        <select name="" id="listPokemones" onchange="getDataPokemon(this.value)">
+            
+        </select>
+
+        <div id="fotoPokemon" data-valor="200">
+             
+        </div>
+    </div>
+    
+    
+   
+
+
+</body>
+<script src="assets/js/jquery2.min.js"></script>
+
+<script>
+    $(document).ready(function () {})
+
+
+    function getPeliculaAleatorioHola(){
+        console.log("Inicio de peticion Ajax")
+        console.log($("#contenidoHTML").html())
+        
+        $.ajax({
+            url:'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0',
+            method:'GET',
+            success:function (data){
+                console.log(data)
+            }
+
+        })
+
+    }
+
+
+    function getPokemones(){
+        $.ajax({
+            url:'https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0',
+            method:'GET',
+            success:function (data){
+                // console.log(data)
+                const pokemonesList=data.results;
+                // console.log(pokemonesList[72].name)
+
+                let cadenaOption='<option>Pokemones Listado</option>';
+                pokemonesList.map((data,index)=>{
+                    console.log(data,index)
+                    
+                    cadenaOption+='<option value="'+data.url+'">'+data.name+'</option>';
+                })
+
+                $("#listPokemones").html(cadenaOption);
+
+
+            }
+
+        })    
+    }
+
+    function getDataPokemon(valorSeleccionadoURL){
+        console.log(valorSeleccionadoURL)
+
+        console.log($("#fotoPokemon").attr("data-valor"))
+
+        $.ajax({
+            url:valorSeleccionadoURL,
+            method:'GET',
+            success:function (data){
+                $("#fotoPokemon").html('<h1>'+data.forms[0].name+'</h1><img src="'+data.sprites.back_default+'">')
+            }
+
+        })      
+    }
+
+    getPokemones()
+
+    
+
+</script>
+</html>

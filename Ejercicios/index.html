@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitios con Jquery</title>
+</head>
+<body>
+    <h1>Sitio integrando Jquery</h1>
+
+    
+
+
+
+    <button type="button" onclick="patronButton(1)">1</button>
+    <button type="button" onclick="patronButton(2)">2</button>
+    <button type="button" onclick="patronButton(3)">3</button><br>
+    <button type="button" onclick="patronButton(4)">4</button>
+    <button type="button" onclick="patronButton(5)">5</button>
+    <button type="button" onclick="patronButton(6)">6</button><br>
+    <button type="button" onclick="patronButton(7)">7</button>
+    <button type="button" onclick="patronButton(8)">8</button>
+    <button type="button" onclick="patronButton(9)">9</button><br>
+    <button type="button" onclick="patronButton(0)">0</button>
+
+
+    <button type="button" onclick="operacionSuma()">+</button>
+
+
+
+    =
+
+    Resultado: <span id="resultadoConcatena"></span>
+    
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+<script src="assets/js/jquery2.min.js"></script>
+
+<script>
+
+    $(document).ready(function(){});
+
+
+    function saludarPersona(){
+        let nombreVariableJs=$("#nombre").val(); // 
+        const saludoFormal='Buenas tardes '+nombreVariableJs;
+        // $("#nombre").val() ==== document.getElementById("nombre").value;
+
+        alert(saludoFormal)
+    }
+    
+    var numeroFinal='';
+    var NumerosSumados=0;
+
+    function patronButton(numero){
+        numeroFinal+=numero;
+
+        $("#resultadoConcatena").html(numeroFinal)
+
+        console.log(numeroFinal)
+    }
+
+    
+    function operacionSuma(){
+        NumerosSumados+=parseInt(numeroFinal);
+        // NumerosSumados=NumerosSumados+
+
+
+        $("#resultadoConcatena").html('');   
+        numeroFinal='';
+
+        alert("Acumulable "+NumerosSumados.toString())
+    }
+
+
+
+</script>
+
+</html>
