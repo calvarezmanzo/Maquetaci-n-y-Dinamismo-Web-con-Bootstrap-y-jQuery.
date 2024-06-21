@@ -6,6 +6,9 @@
 
 ## Maquetación y Dinamismo Web con Bootstrap y jQuery.
 
+# [Video - clase](https://youtu.be/g8fLKWSnHRY)
+
+
 #### Para aquellos interesados en practicar, les invitamos a compartir el resultado del ejercicio de películas. Los endpoints están disponibles en:
 
 * [Película Aleatoria](https://www.codigo-alfa.cl/aglo/Tester/peliculaAleatoria)
